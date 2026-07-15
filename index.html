@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leandro Miguel Aguilar Peña | Backend Developer</title>
-    <meta name="description" content="Desarrollador Backend Java & Spring Boot con 3 años de experiencia en APIs RESTful, Kubernetes on-premise y arquitectura limpia. Disponible para oportunidades remotas globales.">
+    <meta name="description" content="Desarrollador Backend Venezolano Java & Spring Boot con 3 años de experiencia en APIs RESTful, Kubernetes on-premise y arquitectura limpia. Disponible para oportunidades remotas globales.">
     
     <!-- Fuentes Premium de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -271,61 +271,58 @@
             transform: translateY(-3px);
         }
 
-        /* Terminal Tech Widget en el Hero */
-        .terminal-widget {
+        /* Tarjeta de Presentación Personal (Reemplazo de la terminal) */
+        .personal-intro-card {
             width: 100%;
-            max-width: 650px;
-            background: rgba(11, 15, 25, 0.85);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(16, 185, 129, 0.08);
+            max-width: 720px;
+            background: rgba(16, 22, 36, 0.65);
+            border: 1px solid var(--border-hover);
+            border-radius: 20px;
+            padding: 2.5rem;
             text-align: left;
-            font-family: var(--mono);
-            font-size: 0.85rem;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(16, 185, 129, 0.1);
+            transition: all 0.3s ease;
         }
 
-        .terminal-header {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 0.6rem 1rem;
+        .personal-intro-card:hover {
+            border-color: var(--primary-light);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(16, 185, 129, 0.15);
+        }
+
+        .intro-header {
             display: flex;
             align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
             border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
         }
 
-        .terminal-dots {
-            display: flex;
-            gap: 6px;
+        .intro-greeting {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text);
         }
 
-        .terminal-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
+        .intro-role {
+            font-size: 0.9rem;
+            color: var(--primary-light);
+            font-family: var(--mono);
+            font-weight: 600;
         }
 
-        .dot-red { background: #FF5F56; }
-        .dot-yellow { background: #FFBD2E; }
-        .dot-green { background: #27C93F; }
-
-        .terminal-title {
-            margin: 0 auto;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
-        .terminal-body {
-            padding: 1.2rem;
+        .intro-body {
             color: #E2E8F0;
-            line-height: 1.7;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-weight: 400;
         }
 
-        .t-user { color: #34D399; font-weight: 600; }
-        .t-cmd { color: #F8FAFC; }
-        .t-out { color: #94A3B8; }
-        .t-success { color: #34D399; }
-        .t-accent { color: #00F2FE; }
+        .intro-body strong {
+            color: var(--primary-light);
+            font-weight: 600;
+        }
 
         /* General Sections */
         section {
@@ -695,7 +692,7 @@
             .exp-dot { left: 5px; width: 16px; height: 16px; }
             .hero-cta { flex-direction: column; width: 100%; }
             .btn { width: 100%; justify-content: center; }
-            .terminal-widget { font-size: 0.75rem; }
+            .personal-intro-card { padding: 1.5rem; }
         }
     </style>
 </head>
@@ -762,25 +759,16 @@
             </a>
         </div>
 
-        <!-- Mini Terminal Tech Widget -->
-        <div class="terminal-widget">
-            <div class="terminal-header">
-                <div class="terminal-dots">
-                    <div class="terminal-dot dot-red"></div>
-                    <div class="terminal-dot dot-yellow"></div>
-                    <div class="terminal-dot dot-green"></div>
+        <!-- Tarjeta de Presentación Personal -->
+        <div class="personal-intro-card">
+            <div class="intro-header">
+                <div>
+                    <div class="intro-greeting" data-i18n="intro.greeting">👋 Hola, soy Leandro Miguel Aguilar Peña</div>
+                    <div class="intro-role" data-i18n="intro.role">Desarrollador Backend Venezolano · 3+ años en producción</div>
                 </div>
-                <div class="terminal-title">k8s-cluster ~ bash ~ 80x24</div>
             </div>
-            <div class="terminal-body">
-                <div><span class="t-user">leandro@prod-node-01:~$</span> <span class="t-cmd">kubectl get pods -n backend-services</span></div>
-                <div class="t-out">NAME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READY &nbsp;&nbsp;STATUS &nbsp;&nbsp;&nbsp;RESTARTS &nbsp;&nbsp;AGE</div>
-                <div class="t-success">api-gateway-784f9b56-xk2p &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1/1 &nbsp;&nbsp;&nbsp;&nbsp;Running &nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14d</div>
-                <div class="t-success">auth-service-jwt-6c88b-9l4m &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1/1 &nbsp;&nbsp;&nbsp;&nbsp;Running &nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14d</div>
-                <div class="t-success">core-billing-spring-88c9d-m4nz &nbsp;&nbsp;1/1 &nbsp;&nbsp;&nbsp;&nbsp;Running &nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7d</div>
-                <br>
-                <div><span class="t-user">leandro@prod-node-01:~$</span> <span class="t-cmd">curl -X GET https://api.local/actuator/health</span></div>
-                <div><span class="t-accent">{"status":"UP","groups":["liveness","readiness"],"storage":"NFS-PV-Connected"}</span></div>
+            <div class="intro-body" data-i18n="intro.body">
+                Soy un profesional apasionado por resolver problemas complejos mediante ingeniería de software limpia y arquitecturas resilientes. Me especializo en el ecosistema <strong>Java y Spring Boot</strong>, combinando el desarrollo de APIs RESTful seguras con la administración práctica de infraestructura en servidores Linux y clústeres de <strong>Kubernetes auto-gestionados (on-premise)</strong>. Mi objetivo es construir sistemas eficientes, independientes y escalables, aportando valor en equipos multidisciplinarios e internacionales.
             </div>
         </div>
     </section>
@@ -1076,6 +1064,9 @@
                 "hero.subtitle": "Construyo APIs RESTful resilientes y escalo microservicios en infraestructura auto-gestionada. Especialista en arquitectura limpia y operaciones Kubernetes on-premise.",
                 "hero.location": "Venezuela · Inglés C1 Fluido · Remoto Global",
                 "hero.btnContact": "Contactar", "hero.btnCV": "Descargar CV (PDF)",
+                "intro.greeting": "👋 Hola, soy Leandro Miguel Aguilar Peña",
+                "intro.role": "Desarrollador Backend Venezolano · 3+ años en producción",
+                "intro.body": "Soy un profesional apasionado por resolver problemas complejos mediante ingeniería de software limpia y arquitecturas resilientes. Me especializo en el ecosistema Java y Spring Boot, combinando el desarrollo de APIs RESTful seguras con la administración práctica de infraestructura en servidores Linux y clústeres de Kubernetes auto-gestionados (on-premise). Mi objetivo es construir sistemas eficientes, independientes y escalables, aportando valor en equipos multidisciplinarios e internacionales.",
                 "stack.tag": "Tecnologías", "stack.title": "Stack Técnico", "stack.desc": "Herramientas y tecnologías que uso para construir sistemas backend robustos y escalables.",
                 "cat.lang": "Lenguaje", "cat.sec": "Seguridad", "cat.auth": "Autenticación", "cat.cont": "Contenedores", "cat.orch": "Orquestación", "cat.auto": "Automatización", "cat.db": "Bases de Datos", "cat.os": "Sistema Operativo",
                 "exp.tag": "Trayectoria", "exp.title": "Experiencia Profesional", "exp.desc": "3 años construyendo sistemas backend en producción con enfoque en infraestructura auto-gestionada.",
@@ -1112,6 +1103,9 @@
                 "hero.subtitle": "Building resilient RESTful APIs and scaling microservices across self-managed infrastructure. Specialized in clean architecture and on-premise Kubernetes operations.",
                 "hero.location": "Venezuela · Fluent C1 English · Global Remote",
                 "hero.btnContact": "Get in Touch", "hero.btnCV": "Download Resume (PDF)",
+                "intro.greeting": "👋 Hello, I'm Leandro Miguel Aguilar Peña",
+                "intro.role": "Venezuelan Backend Developer · 3+ Years in Production",
+                "intro.body": "I am a software engineer focused on solving real-world challenges through clean code and resilient architectures. I specialize in the Java & Spring Boot ecosystem, combining secure RESTful API development with hands-on infrastructure management across Linux servers and self-managed (on-premise) Kubernetes clusters. My goal is to build efficient, independent, and scalable systems while bringing value to international, cross-functional engineering teams.",
                 "stack.tag": "Technologies", "stack.title": "Technical Stack", "stack.desc": "Core tools and technologies I use to architect scalable and robust backend systems.",
                 "cat.lang": "Language", "cat.sec": "Security", "cat.auth": "Authentication", "cat.cont": "Containers", "cat.orch": "Orchestration", "cat.auto": "Automation", "cat.db": "Databases", "cat.os": "Operating System",
                 "exp.tag": "Trajectory", "exp.title": "Professional Experience", "exp.desc": "3 years delivering production backend systems with deep focus on self-managed infrastructure.",
@@ -1150,7 +1144,11 @@
             elements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) {
-                    el.innerText = translations[lang][key];
+                    if (key === 'intro.body') {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.innerText = translations[lang][key];
+                    }
                 }
             });
 

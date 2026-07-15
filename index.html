@@ -5,22 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leandro Miguel Aguilar Peña | Backend Developer</title>
     <meta name="description" content="Desarrollador Backend Java & Spring Boot con 3 años de experiencia en APIs RESTful, Kubernetes on-premise y arquitectura limpia. Disponible para oportunidades remotas globales.">
+    
+    <!-- Fuentes Premium de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #10B981;
             --primary-light: #34D399;
             --primary-dark: #059669;
-            --secondary: #0F172A;
-            --accent: #06B6D4;
-            --bg: #0B0F1A;
-            --surface: #111827;
-            --surface-light: #1F2937;
-            --text: #F1F5F9;
+            --primary-glow: rgba(16, 185, 129, 0.18);
+            --secondary: #0B0F19;
+            --accent: #00F2FE;
+            --bg: #060911;
+            --surface: rgba(16, 22, 36, 0.7);
+            --surface-hover: rgba(23, 32, 51, 0.85);
+            --text: #F8FAFC;
             --text-muted: #94A3B8;
-            --border: #1E293B;
-            --radius: 12px;
-            --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            --mono: 'Consolas', 'Monaco', 'Courier New', monospace;
+            --border: rgba(255, 255, 255, 0.07);
+            --border-hover: rgba(16, 185, 129, 0.4);
+            --radius: 16px;
+            --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+            --mono: 'JetBrains Mono', monospace;
         }
 
         * {
@@ -39,18 +47,23 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 10% 0%, rgba(16, 185, 129, 0.09) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(0, 242, 254, 0.06) 0px, transparent 50%);
+            background-attachment: fixed;
         }
 
-        /* Navbar */
+        /* Navbar Premium Glass */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 1rem 2rem;
-            background: rgba(11, 15, 26, 0.85);
-            backdrop-filter: blur(20px);
+            padding: 1.2rem 2.5rem;
+            background: rgba(6, 9, 17, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
@@ -58,9 +71,10 @@
         }
 
         .nav-brand {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--primary);
+            font-family: var(--mono);
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: var(--primary-light);
             letter-spacing: -0.5px;
         }
 
@@ -76,7 +90,7 @@
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             list-style: none;
             align-items: center;
         }
@@ -86,70 +100,58 @@
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
+            transition: all 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--text);
+            text-shadow: 0 0 12px rgba(255,255,255,0.3);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Language Selector & CV Btn in Nav */
         .lang-btn {
-            background: var(--surface);
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border);
             color: var(--text);
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
+            padding: 0.45rem 0.9rem;
+            border-radius: 8px;
             font-size: 0.8rem;
             font-weight: 600;
+            font-family: var(--mono);
             cursor: pointer;
             transition: all 0.3s;
-            font-family: var(--font);
         }
 
         .lang-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
+            border-color: var(--primary-light);
+            color: var(--primary-light);
+            background: var(--primary-glow);
+            box-shadow: 0 0 15px var(--primary-glow);
         }
 
         .nav-cv-btn {
-            padding: 0.4rem 0.8rem;
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--primary);
+            padding: 0.45rem 1rem;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(0, 242, 254, 0.1));
+            color: var(--primary-light);
             border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 6px;
-            font-size: 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.5rem;
         }
 
         .nav-cv-btn:hover {
             background: var(--primary);
-            color: white;
+            color: #000;
+            font-weight: 700;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
             transform: translateY(-1px);
         }
 
-        /* Hero */
+        /* Hero Mejorado */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -157,240 +159,269 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 6rem 2rem 4rem;
+            padding: 7.5rem 2rem 5rem;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
-            pointer-events: none;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
+            gap: 0.6rem;
+            padding: 0.55rem 1.2rem;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.25);
             border-radius: 100px;
             font-size: 0.85rem;
-            color: var(--primary);
+            font-weight: 600;
+            color: var(--primary-light);
             margin-bottom: 2rem;
-            animation: fadeInUp 0.6s ease-out;
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.1);
         }
 
         .hero-badge .dot {
             width: 8px;
             height: 8px;
-            background: var(--primary);
+            background: var(--primary-light);
             border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-light);
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.6; }
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.8rem, 5.5vw, 4.5rem);
             font-weight: 800;
-            letter-spacing: -1.5px;
-            line-height: 1.1;
+            letter-spacing: -2px;
+            line-height: 1.08;
             margin-bottom: 1.5rem;
-            animation: fadeInUp 0.6s ease-out 0.1s both;
         }
 
         .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, #34D399 0%, #00F2FE 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
             color: var(--text-muted);
-            max-width: 700px;
-            margin-bottom: 0.5rem;
-            animation: fadeInUp 0.6s ease-out 0.2s both;
+            max-width: 680px;
+            margin-bottom: 0.75rem;
+            font-weight: 400;
         }
 
         .hero-location {
             font-size: 0.9rem;
             color: var(--text-muted);
             margin-bottom: 2.5rem;
-            animation: fadeInUp 0.6s ease-out 0.25s both;
-        }
-
-        .hero-location svg {
-            vertical-align: middle;
-            margin-right: 0.25rem;
+            font-family: var(--mono);
         }
 
         .hero-cta {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
             flex-wrap: wrap;
             justify-content: center;
-            animation: fadeInUp 0.6s ease-out 0.3s both;
+            margin-bottom: 3.5rem;
         }
 
         .btn {
-            padding: 0.875rem 2rem;
+            padding: 0.95rem 2.2rem;
             border-radius: var(--radius);
             font-weight: 600;
             font-size: 0.95rem;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             cursor: pointer;
             border: none;
             font-family: var(--font);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            background: linear-gradient(135deg, var(--primary), #059669);
+            color: #000;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.25);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
         }
 
         .btn-secondary {
             background: var(--surface);
             color: var(--text);
             border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
-            background: var(--surface-light);
-            border-color: var(--primary);
+            background: var(--surface-hover);
+            border-color: var(--text-muted);
+            transform: translateY(-3px);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Terminal Tech Widget en el Hero */
+        .terminal-widget {
+            width: 100%;
+            max-width: 650px;
+            background: rgba(11, 15, 25, 0.85);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(16, 185, 129, 0.08);
+            text-align: left;
+            font-family: var(--mono);
+            font-size: 0.85rem;
         }
 
-        /* Section general */
+        .terminal-header {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.6rem 1rem;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #FF5F56; }
+        .dot-yellow { background: #FFBD2E; }
+        .dot-green { background: #27C93F; }
+
+        .terminal-title {
+            margin: 0 auto;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .terminal-body {
+            padding: 1.2rem;
+            color: #E2E8F0;
+            line-height: 1.7;
+        }
+
+        .t-user { color: #34D399; font-weight: 600; }
+        .t-cmd { color: #F8FAFC; }
+        .t-out { color: #94A3B8; }
+        .t-success { color: #34D399; }
+        .t-accent { color: #00F2FE; }
+
+        /* General Sections */
         section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
+            padding: 6rem 2rem;
+            max-width: 1150px;
             margin: 0 auto;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 4.5rem;
         }
 
         .section-tag {
             display: inline-block;
-            padding: 0.4rem 1rem;
-            background: var(--surface);
+            padding: 0.45rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
             border-radius: 100px;
-            font-size: 0.8rem;
-            color: var(--primary);
+            font-size: 0.75rem;
+            color: var(--primary-light);
             font-weight: 600;
+            font-family: var(--mono);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             margin-bottom: 1rem;
         }
 
         .section-title {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-weight: 700;
+            font-size: clamp(2rem, 3.5vw, 2.75rem);
+            font-weight: 800;
+            letter-spacing: -1px;
             margin-bottom: 1rem;
         }
 
         .section-desc {
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 580px;
             margin: 0 auto;
+            font-size: 1.05rem;
         }
 
         /* Stack Grid */
         .stack-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.2rem;
         }
 
         .stack-item {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 1.5rem 1rem;
+            padding: 1.8rem 1.2rem;
             text-align: center;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(12px);
             position: relative;
             overflow: hidden;
         }
 
-        .stack-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
         .stack-item:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.1);
-        }
-
-        .stack-item:hover::before {
-            opacity: 1;
+            transform: translateY(-6px);
+            border-color: var(--border-hover);
+            background: var(--surface-hover);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px var(--primary-glow);
         }
 
         .stack-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .stack-item:hover .stack-icon {
+            transform: scale(1.15);
         }
 
         .stack-name {
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text);
         }
 
         .stack-category {
             font-size: 0.75rem;
             color: var(--text-muted);
-            margin-top: 0.25rem;
+            margin-top: 0.3rem;
+            font-family: var(--mono);
         }
 
-        /* Experience */
+        /* Experience Timeline */
         .exp-timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
@@ -398,31 +429,28 @@
             content: '';
             position: absolute;
             left: 24px;
-            top: 0;
-            bottom: 0;
+            top: 10px;
+            bottom: 10px;
             width: 2px;
-            background: linear-gradient(180deg, var(--primary), var(--accent));
+            background: linear-gradient(180deg, var(--primary), rgba(0, 242, 254, 0.2));
         }
 
         .exp-item {
             position: relative;
             padding-left: 70px;
-            padding-bottom: 3rem;
-        }
-
-        .exp-item:last-child {
-            padding-bottom: 0;
+            padding-bottom: 3.5rem;
         }
 
         .exp-dot {
             position: absolute;
             left: 15px;
-            top: 4px;
+            top: 6px;
             width: 20px;
             height: 20px;
             background: var(--bg);
-            border: 3px solid var(--primary);
+            border: 3px solid var(--primary-light);
             border-radius: 50%;
+            box-shadow: 0 0 15px var(--primary-light);
             z-index: 2;
         }
 
@@ -430,105 +458,124 @@
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 1.75rem;
+            padding: 2.2rem;
             transition: all 0.3s;
+            backdrop-filter: blur(12px);
         }
 
         .exp-card:hover {
-            border-color: var(--primary);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         .exp-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             flex-wrap: wrap;
             gap: 0.5rem;
         }
 
         .exp-title {
-            font-size: 1.1rem;
-            font-weight: 700;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text);
         }
 
         .exp-badge {
-            padding: 0.3rem 0.8rem;
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--primary);
+            padding: 0.35rem 0.85rem;
+            background: var(--primary-glow);
+            color: var(--primary-light);
+            border: 1px solid rgba(16, 185, 129, 0.3);
             border-radius: 100px;
             font-size: 0.75rem;
-            font-weight: 600;
+            font-weight: 700;
+            font-family: var(--mono);
         }
 
         .exp-company {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
+            color: var(--primary-light);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            font-family: var(--mono);
         }
 
         .exp-list {
             list-style: none;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .exp-list li {
-            padding: 0.35rem 0;
-            padding-left: 1.25rem;
+            padding: 0.45rem 0;
+            padding-left: 1.5rem;
             position: relative;
         }
 
         .exp-list li::before {
-            content: '▸';
+            content: '▹';
             position: absolute;
             left: 0;
-            color: var(--primary);
+            color: var(--primary-light);
+            font-weight: bold;
         }
 
-        /* Services */
+        /* Filosofía / Servicios */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
         }
 
         .service-card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 2rem;
-            transition: all 0.3s;
+            padding: 2.5rem 2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            backdrop-filter: blur(12px);
         }
 
         .service-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--primary);
-            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.08);
+            transform: translateY(-8px);
+            border-color: var(--border-hover);
+            background: var(--surface-hover);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(16, 185, 129, 0.1);
         }
 
         .service-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(16, 185, 129, 0.15);
-            border-radius: var(--radius);
+            width: 54px;
+            height: 54px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.25rem;
-            color: var(--primary);
+            margin-bottom: 1.5rem;
+            color: var(--primary-light);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--primary-light);
+            color: #000;
+            transform: rotate(-5deg) scale(1.05);
         }
 
         .service-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            color: var(--text);
         }
 
         .service-desc {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             line-height: 1.7;
         }
 
@@ -536,150 +583,119 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .tag {
-            padding: 0.25rem 0.6rem;
-            background: var(--bg);
+            padding: 0.3rem 0.7rem;
+            background: rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border);
-            border-radius: 100px;
+            border-radius: 6px;
             font-size: 0.75rem;
             color: var(--text-muted);
+            font-family: var(--mono);
         }
 
         /* Contact */
         .contact {
             text-align: center;
-            background: var(--surface);
-            border-radius: var(--radius);
-            padding: 4rem 2rem;
+            background: linear-gradient(180deg, var(--surface) 0%, rgba(11, 15, 25, 0.9) 100%);
+            border-radius: 24px;
+            padding: 5rem 2.5rem;
             border: 1px solid var(--border);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
 
         .contact::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
         }
 
         .contact-title {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 700;
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 800;
             margin-bottom: 1rem;
         }
 
         .contact-desc {
             color: var(--text-muted);
-            max-width: 500px;
-            margin: 0 auto 2rem;
+            max-width: 520px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.05rem;
         }
 
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.2rem;
             flex-wrap: wrap;
         }
 
         .contact-link {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.5rem;
-            background: var(--bg);
+            gap: 0.7rem;
+            padding: 1rem 1.8rem;
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             color: var(--text);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s;
         }
 
         .contact-link:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .contact-link svg {
-            width: 20px;
-            height: 20px;
+            border-color: var(--primary-light);
+            color: var(--primary-light);
+            background: var(--primary-glow);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
         .contact-availability {
-            margin-top: 2rem;
+            margin-top: 3rem;
             padding-top: 2rem;
             border-top: 1px solid var(--border);
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            color: var(--primary);
+            gap: 0.6rem;
+            color: var(--primary-light);
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 600;
+            font-family: var(--mono);
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
             color: var(--text-muted);
             font-size: 0.85rem;
             border-top: 1px solid var(--border);
+            font-family: var(--mono);
         }
 
         /* Mobile */
         @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem;
-            }
-
-            .nav-links {
-                display: none; /* Oculta links en móvil para dejar espacio al selector y botón CV */
-            }
-
-            .nav-right {
-                gap: 0.8rem;
-            }
-
-            .hero {
-                padding: 5rem 1.5rem 3rem;
-            }
-
-            section {
-                padding: 3rem 1.5rem;
-            }
-
-            .exp-timeline::before {
-                left: 14px;
-            }
-
-            .exp-item {
-                padding-left: 45px;
-            }
-
-            .exp-dot {
-                left: 5px;
-                width: 16px;
-                height: 16px;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
-            }
+            .navbar { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .hero { padding: 6rem 1.5rem 4rem; }
+            section { padding: 4rem 1.5rem; }
+            .exp-timeline::before { left: 14px; }
+            .exp-item { padding-left: 45px; }
+            .exp-dot { left: 5px; width: 16px; height: 16px; }
+            .hero-cta { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+            .terminal-widget { font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -692,7 +708,7 @@
             <ul class="nav-links">
                 <li><a href="#stack" data-i18n="nav.stack">Stack</a></li>
                 <li><a href="#experiencia" data-i18n="nav.exp">Experiencia</a></li>
-                <li><a href="#servicios" data-i18n="nav.services">Servicios</a></li>
+                <li><a href="#servicios" data-i18n="nav.services">Filosofía</a></li>
                 <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
             </ul>
             <a href="cv-spanish.pdf" download id="nav-cv-link" class="nav-cv-btn">
@@ -744,6 +760,28 @@
                 </svg>
                 <span data-i18n="hero.btnCV">Descargar CV (PDF)</span>
             </a>
+        </div>
+
+        <!-- Mini Terminal Tech Widget -->
+        <div class="terminal-widget">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <div class="terminal-dot dot-red"></div>
+                    <div class="terminal-dot dot-yellow"></div>
+                    <div class="terminal-dot dot-green"></div>
+                </div>
+                <div class="terminal-title">k8s-cluster ~ bash ~ 80x24</div>
+            </div>
+            <div class="terminal-body">
+                <div><span class="t-user">leandro@prod-node-01:~$</span> <span class="t-cmd">kubectl get pods -n backend-services</span></div>
+                <div class="t-out">NAME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READY &nbsp;&nbsp;STATUS &nbsp;&nbsp;&nbsp;RESTARTS &nbsp;&nbsp;AGE</div>
+                <div class="t-success">api-gateway-784f9b56-xk2p &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1/1 &nbsp;&nbsp;&nbsp;&nbsp;Running &nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14d</div>
+                <div class="t-success">auth-service-jwt-6c88b-9l4m &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1/1 &nbsp;&nbsp;&nbsp;&nbsp;Running &nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14d</div>
+                <div class="t-success">core-billing-spring-88c9d-m4nz &nbsp;&nbsp;1/1 &nbsp;&nbsp;&nbsp;&nbsp;Running &nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7d</div>
+                <br>
+                <div><span class="t-user">leandro@prod-node-01:~$</span> <span class="t-cmd">curl -X GET https://api.local/actuator/health</span></div>
+                <div><span class="t-accent">{"status":"UP","groups":["liveness","readiness"],"storage":"NFS-PV-Connected"}</span></div>
+            </div>
         </div>
     </section>
 
@@ -866,12 +904,12 @@
         </div>
     </section>
 
-    <!-- Servicios -->
+    <!-- Filosofía de Ingeniería / Servicios -->
     <section id="servicios">
         <div class="section-header">
-            <span class="section-tag" data-i18n="srv.tag">Fortalezas</span>
-            <h2 class="section-title" data-i18n="srv.title">¿Cómo puedo aportar valor?</h2>
-            <p class="section-desc" data-i18n="srv.desc">Áreas donde mi experiencia hands-on puede marcar la diferencia en tu equipo.</p>
+            <span class="section-tag" data-i18n="srv.tag">Filosofía de Ingeniería</span>
+            <h2 class="section-title" data-i18n="srv.title">¿Por qué infraestructura auto-gestionada?</h2>
+            <p class="section-desc" data-i18n="srv.desc">Mi enfoque técnico para construir sistemas que combinan arquitectura limpia, independencia operativa y alta disponibilidad.</p>
         </div>
         <div class="services-grid">
             <div class="service-card">
@@ -882,10 +920,10 @@
                         <line x1="12" y1="17" x2="12" y2="21"/>
                     </svg>
                 </div>
-                <div class="service-title" data-i18n="srv.c1.title">Arquitectura Backend</div>
+                <div class="service-title" data-i18n="srv.c1.title">Arquitectura Backend Limpia</div>
                 <div class="service-desc" data-i18n="srv.c1.desc">
                     Diseño de servicios Java/Spring Boot de nivel producción con arquitectura limpia, 
-                    separación de responsabilidades y código mantenible a largo plazo.
+                    separación estricta de responsabilidades y código altamente mantenible a largo plazo.
                 </div>
                 <div class="service-tags">
                     <span class="tag">Spring Boot</span>
@@ -901,8 +939,8 @@
                 </div>
                 <div class="service-title" data-i18n="srv.c2.title">Seguridad & Autenticación</div>
                 <div class="service-desc" data-i18n="srv.c2.desc">
-                    Protección de endpoints con Spring Security, implementación de JWT/OAuth2 
-                    y mejores prácticas de seguridad en APIs enterprise.
+                    Protección de endpoints con Spring Security, implementación de protocolos JWT/OAuth2 
+                    y mejores prácticas de seguridad enterprise en cada capa de la aplicación.
                 </div>
                 <div class="service-tags">
                     <span class="tag">Spring Security</span>
@@ -919,10 +957,10 @@
                         <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                     </svg>
                 </div>
-                <div class="service-title" data-i18n="srv.c3.title">Infraestructura Auto-gestionada</div>
+                <div class="service-title" data-i18n="srv.c3.title">Dominio Bare-Metal & K8s</div>
                 <div class="service-desc" data-i18n="srv.c3.desc">
-                    Lo que realmente me diferencia: experiencia real desplegando y operando 
-                    Kubernetes on-premise, no solo usando servicios cloud gestionados.
+                    Mi mayor diferenciador: experiencia real desplegando y administrando clústeres 
+                    Kubernetes on-premise desde cero, sin depender de costosos servicios cloud gestionados.
                 </div>
                 <div class="service-tags">
                     <span class="tag">Kubernetes</span>
@@ -938,10 +976,10 @@
                         <polyline points="8 6 2 12 8 18"/>
                     </svg>
                 </div>
-                <div class="service-title" data-i18n="srv.c4.title">Automatización & DevOps</div>
+                <div class="service-title" data-i18n="srv.c4.title">Automatización & CI/CD</div>
                 <div class="service-desc" data-i18n="srv.c4.desc">
-                    Eliminación de procesos manuales mediante scripts Python, pipelines CI/CD 
-                    automatizadas y herramientas de monitoreo en tiempo real.
+                    Eliminación del error humano mediante scripts Python, creación de pipelines CI/CD 
+                    y despliegue de herramientas de monitoreo en tiempo real para máxima estabilidad.
                 </div>
                 <div class="service-tags">
                     <span class="tag">Python</span>
@@ -958,10 +996,10 @@
                         <line x1="16" y1="17" x2="8" y2="17"/>
                     </svg>
                 </div>
-                <div class="service-title" data-i18n="srv.c5.title">Calidad de Código</div>
+                <div class="service-title" data-i18n="srv.c5.title">Calidad & Pruebas Robustas</div>
                 <div class="service-desc" data-i18n="srv.c5.desc">
-                    Pruebas unitarias y de integración con JUnit, revisión de código entre pares 
-                    y adhesión a estándares de calidad enterprise.
+                    Pruebas unitarias y de integración exhaustivas con JUnit, revisión de código entre pares 
+                    y compromiso con estándares de alta tolerancia a fallos en entornos críticos.
                 </div>
                 <div class="service-tags">
                     <span class="tag">JUnit</span>
@@ -977,10 +1015,10 @@
                         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
                     </svg>
                 </div>
-                <div class="service-title" data-i18n="srv.c6.title">Colaboración Global</div>
+                <div class="service-title" data-i18n="srv.c6.title">Mentalidad Global & Remota</div>
                 <div class="service-desc" data-i18n="srv.c6.desc">
-                    Inglés C1 fluido para trabajo en equipos internacionales. Experiencia en 
-                    metodologías Agile/Scrum con colaboración multidisciplinaria.
+                    Inglés C1 fluido para comunicación técnica en equipos internacionales. Experiencia probada 
+                    en metodologías Agile/Scrum colaborando con áreas multidisciplinarias.
                 </div>
                 <div class="service-tags">
                     <span class="tag" data-i18n="tag.eng">Inglés C1</span>
@@ -1003,22 +1041,22 @@
             <div class="contact-links">
                 <!-- Email -->
                 <a href="mailto:leaguilar099@gmail.com" class="contact-link">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                         <polyline points="22,6 12,13 2,6"/>
                     </svg>
                     leaguilar099@gmail.com
                 </a>
                 <!-- LinkedIn -->
-                <a href="https://linkedin.com/in/leandro-aguilar-backend-dev" target="_blank" class="contact-link">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
+                <a href="https://linkedin.com/in/leaguilar" target="_blank" class="contact-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
                     LinkedIn
                 </a>
             </div>
             <div class="contact-availability">
-                <span class="dot" style="display:inline-block;width:8px;height:8px;background:var(--primary);border-radius:50%;animation:pulse 2s infinite;"></span>
+                <span class="dot" style="display:inline-block;width:8px;height:8px;background:var(--primary-light);border-radius:50%;box-shadow:0 0 10px var(--primary-light);animation:pulse 2s infinite;"></span>
                 <span data-i18n="cnt.avail">Disponible para proyectos y posiciones remotas globales</span>
             </div>
         </div>
@@ -1033,7 +1071,7 @@
     <script>
         const translations = {
             es: {
-                "nav.stack": "Stack", "nav.exp": "Experiencia", "nav.services": "Servicios", "nav.contact": "Contacto", "nav.cv": "CV PDF",
+                "nav.stack": "Stack", "nav.exp": "Experiencia", "nav.services": "Filosofía", "nav.contact": "Contacto", "nav.cv": "CV PDF",
                 "hero.badge": "Disponible para oportunidades remotas",
                 "hero.subtitle": "Construyo APIs RESTful resilientes y escalo microservicios en infraestructura auto-gestionada. Especialista en arquitectura limpia y operaciones Kubernetes on-premise.",
                 "hero.location": "Venezuela · Inglés C1 Fluido · Remoto Global",
@@ -1056,20 +1094,20 @@
                 "exp.job2.li3": "Gestión de almacenamiento persistente con NFS en clúster",
                 "exp.job2.li4": "Contenerización de servicios y orquestación a escala",
                 "exp.job2.li5": "Operación sobre infraestructura Linux on-premise (no cloud-only)",
-                "srv.tag": "Fortalezas", "srv.title": "¿Cómo puedo aportar valor?", "srv.desc": "Áreas donde mi experiencia hands-on puede marcar la diferencia en tu equipo.",
-                "srv.c1.title": "Arquitectura Backend", "srv.c1.desc": "Diseño de servicios Java/Spring Boot de nivel producción con arquitectura limpia, separación de responsabilidades y código mantenible a largo plazo.",
-                "srv.c2.title": "Seguridad & Autenticación", "srv.c2.desc": "Protección de endpoints con Spring Security, implementación de JWT/OAuth2 y mejores prácticas de seguridad en APIs enterprise.",
-                "srv.c3.title": "Infraestructura Auto-gestionada", "srv.c3.desc": "Lo que realmente me diferencia: experiencia real desplegando y operando Kubernetes on-premise, no solo usando servicios cloud gestionados.",
-                "srv.c4.title": "Automatización & DevOps", "srv.c4.desc": "Eliminación de procesos manuales mediante scripts Python, pipelines CI/CD automatizadas y herramientas de monitoreo en tiempo real.",
-                "srv.c5.title": "Calidad de Código", "srv.c5.desc": "Pruebas unitarias y de integración con JUnit, revisión de código entre pares y adhesión a estándares de calidad enterprise.",
-                "srv.c6.title": "Colaboración Global", "srv.c6.desc": "Inglés C1 fluido para trabajo en equipos internacionales. Experiencia en metodologías Agile/Scrum con colaboración multidisciplinaria.",
+                "srv.tag": "Filosofía de Ingeniería", "srv.title": "¿Por qué infraestructura auto-gestionada?", "srv.desc": "Mi enfoque técnico para construir sistemas que combinan arquitectura limpia, independencia operativa y alta disponibilidad.",
+                "srv.c1.title": "Arquitectura Backend Limpia", "srv.c1.desc": "Diseño de servicios Java/Spring Boot de nivel producción con arquitectura limpia, separación estricta de responsabilidades y código altamente mantenible a largo plazo.",
+                "srv.c2.title": "Seguridad & Autenticación", "srv.c2.desc": "Protección de endpoints con Spring Security, implementación de protocolos JWT/OAuth2 y mejores prácticas de seguridad enterprise en cada capa de la aplicación.",
+                "srv.c3.title": "Dominio Bare-Metal & K8s", "srv.c3.desc": "Mi mayor diferenciador: experiencia real desplegando y administrando clústeres Kubernetes on-premise desde cero, sin depender de costosos servicios cloud gestionados.",
+                "srv.c4.title": "Automatización & CI/CD", "srv.c4.desc": "Eliminación del error humano mediante scripts Python, creación de pipelines CI/CD y despliegue de herramientas de monitoreo en tiempo real para máxima estabilidad.",
+                "srv.c5.title": "Calidad & Pruebas Robustas", "srv.c5.desc": "Pruebas unitarias y de integración exhaustivas con JUnit, revisión de código entre pares y compromiso con estándares de alta tolerancia a fallos en entornos críticos.",
+                "srv.c6.title": "Mentalidad Global & Remota", "srv.c6.desc": "Inglés C1 fluido para comunicación técnica en equipos internacionales. Experiencia probada en metodologías Agile/Scrum colaborando con áreas multidisciplinarias.",
                 "tag.eng": "Inglés C1", "tag.rem": "Remoto",
                 "cnt.title": "¿Trabajamos juntos?", "cnt.desc": "Estoy abierto a oportunidades remotas globales. Si buscas un backend developer con experiencia real en infraestructura auto-gestionada, hablemos.",
                 "cnt.avail": "Disponible para proyectos y posiciones remotas globales",
                 "footer": "Leandro Miguel Aguilar Peña · Backend Developer · Construido con dedicación"
             },
             en: {
-                "nav.stack": "Stack", "nav.exp": "Experience", "nav.services": "Services", "nav.contact": "Contact", "nav.cv": "Resume PDF",
+                "nav.stack": "Stack", "nav.exp": "Experience", "nav.services": "Philosophy", "nav.contact": "Contact", "nav.cv": "Resume PDF",
                 "hero.badge": "Available for remote opportunities",
                 "hero.subtitle": "Building resilient RESTful APIs and scaling microservices across self-managed infrastructure. Specialized in clean architecture and on-premise Kubernetes operations.",
                 "hero.location": "Venezuela · Fluent C1 English · Global Remote",
@@ -1092,13 +1130,13 @@
                 "exp.job2.li3": "Provisioned persistent NFS-backed storage (PV/PVC) for stateful workloads",
                 "exp.job2.li4": "Containerized backend services and orchestrated deployments at scale",
                 "exp.job2.li5": "Hands-on operation over bare-metal Linux infrastructure (no cloud-only reliance)",
-                "srv.tag": "Strengths", "srv.title": "How I Add Value", "srv.desc": "Areas where my hands-on expertise makes an immediate difference in your engineering team.",
-                "srv.c1.title": "Backend Architecture", "srv.c1.desc": "Designing production-grade Java/Spring Boot services applying clean architecture principles, separation of concerns, and long-term maintainability.",
-                "srv.c2.title": "Security & Auth", "srv.c2.desc": "Securing endpoints with Spring Security, implementing JWT/OAuth2 protocols, and enforcing enterprise-grade API security best practices.",
-                "srv.c3.title": "Self-Managed Infra", "srv.c3.desc": "My core differentiator: real-world experience deploying and operating bare-metal/on-premise Kubernetes, going beyond managed cloud services.",
-                "srv.c4.title": "Automation & DevOps", "srv.c4.desc": "Eliminating manual operational workflows through Python scripting, automated CI/CD pipelines, and real-time system monitoring tools.",
-                "srv.c5.title": "Code Quality", "srv.c5.desc": "Writing thorough unit and integration tests with JUnit, conducting strict peer code reviews, and upholding enterprise code standards.",
-                "srv.c6.title": "Global Collaboration", "srv.c6.desc": "Fluent C1 English for international team integration. Proven experience working in Agile/Scrum cross-functional environments.",
+                "srv.tag": "Engineering Philosophy", "srv.title": "Why Self-Managed Infrastructure?", "srv.desc": "My technical approach to building systems that combine clean architecture, operational independence, and high availability.",
+                "srv.c1.title": "Clean Backend Architecture", "srv.c1.desc": "Designing production-grade Java/Spring Boot services applying clean architecture principles, strict separation of concerns, and long-term maintainability.",
+                "srv.c2.title": "Security & Authentication", "srv.c2.desc": "Securing endpoints with Spring Security, implementing JWT/OAuth2 protocols, and enforcing enterprise-grade security best practices across every layer.",
+                "srv.c3.title": "Bare-Metal & K8s Mastery", "srv.c3.desc": "My core differentiator: real-world experience deploying and operating bare-metal/on-premise Kubernetes from scratch, going beyond managed cloud services.",
+                "srv.c4.title": "Automation & CI/CD", "srv.c4.desc": "Eliminating human error through Python scripting, automated CI/CD pipelines, and real-time system monitoring tools for maximum reliability.",
+                "srv.c5.title": "Quality & Robust Testing", "srv.c5.desc": "Writing thorough unit and integration tests with JUnit, conducting strict peer code reviews, and upholding fault-tolerant standards in critical environments.",
+                "srv.c6.title": "Global & Remote Mindset", "srv.c6.desc": "Fluent C1 English for seamless technical communication in international teams. Proven experience working in Agile/Scrum cross-functional environments.",
                 "tag.eng": "English C1", "tag.rem": "Remote",
                 "cnt.title": "Let's Work Together", "cnt.desc": "I am currently open to global remote roles. If you are looking for a backend engineer with real-world self-managed infrastructure experience, let's talk.",
                 "cnt.avail": "Available for global remote projects and full-time positions",
@@ -1134,16 +1172,14 @@
             if (savedLang) {
                 setLanguage(savedLang);
             } else {
-                // Lee el idioma del navegador o sistema operativo del usuario
                 const userLang = navigator.language || navigator.userLanguage;
                 if (userLang.toLowerCase().startsWith('es')) {
                     setLanguage('es');
                 } else {
-                    setLanguage('en'); // Por defecto en inglés si es de USA, Europa, etc.
+                    setLanguage('en');
                 }
             }
 
-            // Click al botón para cambiar manualmente
             document.getElementById('lang-toggle').addEventListener('click', () => {
                 const currentLang = document.documentElement.lang;
                 setLanguage(currentLang === 'es' ? 'en' : 'es');
